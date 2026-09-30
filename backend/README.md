@@ -21,3 +21,10 @@ uvicorn app.main:app --reload
 After running the server, visit:
 - Swagger UI: http://localhost:8000/docs
 - ReDoc: http://localhost:8000/redoc
+<<<<<<< HEAD
+=======
+
+
+
+tesing
+>>>>>>> 9097f1c1ccbca3e8f7c19e5080c824bb12c7fd95
