@@ -1,0 +1,133 @@
+╔═══════════════════════════════════════════════════════════════════╗
+║          STUDENT TASK MANAGER - MANUAL RUN CHECKLIST             ║
+╚═══════════════════════════════════════════════════════════════════╝
+
+OPTION 1: EASIEST METHOD (Windows Only)
+========================================
+□ Double-click "START_BOTH.bat" in the project root folder
+□ Wait 10-30 seconds for servers to start
+□ Open browser to: http://localhost:5173
+□ Done!
+
+
+OPTION 2: MANUAL METHOD (All Platforms)
+========================================
+
+TERMINAL 1 - BACKEND:
+---------------------
+□ Open PowerShell/Terminal
+□ Run: cd c:\Users\admin\project1\student-task-manager\backend
+□ Run: pip install -r requirements.txt
+□ Run: uvicorn app.main:app --reload --port 8000
+□ Wait for: "Application startup complete"
+□ Test: Open http://localhost:8000/health in browser
+   Should see: {"status":"healthy"}
+
+
+TERMINAL 2 - FRONTEND:
+----------------------
+□ Open NEW PowerShell/Terminal window
+□ Run: cd c:\Users\admin\project1\student-task-manager\frontend
+□ Run: npm install --legacy-peer-deps
+   (This may take 1-2 minutes)
+□ Run: npm run dev
+□ Wait for: "Local: http://localhost:5173/"
+□ Open: http://localhost:5173 in browser
+
+
+FIRST TIME USE:
+===============
+□ Click "Register" on login page
+□ Fill in:
+   Full Name: John Doe
+   Email: john@example.com
+   Password: password123
+□ Click "Register" button
+□ You'll be logged in automatically
+□ Go to "Tasks" → Click "+ Add Task"
+□ Create your first task
+□ Go to "Dashboard" to see statistics
+
+
+VERIFICATION CHECKLIST:
+=======================
+□ Backend running on http://localhost:8000
+□ Frontend running on http://localhost:5173
+□ Can access API docs at http://localhost:8000/docs
+□ Can register a new user
+□ Can login with credentials
+□ Can create a task
+□ Can view dashboard statistics
+□ Can edit and delete tasks
+□ Can filter tasks
+□ Can logout
+
+
+TROUBLESHOOTING:
+================
+
+Problem: Port 8000 already in use
+Solution: 
+  1. netstat -ano | findstr :8000
+  2. taskkill /PID <PID> /F
+  OR use different port: uvicorn app.main:app --reload --port 8001
+
+Problem: Port 5173 already in use
+Solution:
+  1. netstat -ano | findstr :5173
+  2. taskkill /PID <PID> /F
+  OR use different port: npm run dev -- --port 5174
+
+Problem: Module not found errors
+Solution:
+  Backend: pip install -r requirements.txt
+  Frontend: npm install --legacy-peer-deps
+
+Problem: Database errors
+Solution:
+  Delete: database\student_tasks.db
+  Restart backend (it will recreate)
+
+Problem: 401 Unauthorized
+Solution:
+  1. Logout and login again
+  2. Clear browser cookies for localhost
+  3. Verify both servers are running
+
+
+URLS TO REMEMBER:
+=================
+Frontend App:        http://localhost:5173
+Backend API:         http://localhost:8000
+API Documentation:   http://localhost:8000/docs
+Health Check:        http://localhost:8000/health
+
+
+STOPPING THE SERVERS:
+=====================
+□ In Backend terminal: Press CTRL + C
+□ In Frontend terminal: Press CTRL + C
+
+
+ADDITIONAL RESOURCES:
+=====================
+□ Detailed instructions: HOW_TO_RUN.md
+□ API testing guide: TEST_API.md
+□ Project overview: README.md
+
+
+═══════════════════════════════════════════════════════════════════
+
+✅ PROJECT IS READY TO RUN!
+
+Both backend and frontend are fully functional with:
+- User authentication (register/login)
+- Task management (CRUD operations)
+- Dashboard with statistics
+- Search and filtering
+- Responsive UI design
+- Complete API documentation
+
+Just follow the steps above and you're all set!
+
+═══════════════════════════════════════════════════════════════════
